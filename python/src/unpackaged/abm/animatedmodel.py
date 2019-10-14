@@ -56,7 +56,7 @@ carry_on = True
 # =============================================================================
 environment = []
 
-# Reading the csv file called "in.csv" 
+# Reading the data from the csv file "in.csv" for pixelation" 
 f = open('in.csv', newline='')
 reader = csv.reader(f, quoting=csv.QUOTE_NONNUMERIC)
  # A list of rows
@@ -260,7 +260,8 @@ model_menu.add_command(label="Run model", command=run)
 # background colour and size of the border
 # =============================================================================
 agentsNum_frame = tk.Frame(root, bg='#80c1ff', bd=5)
-agentsNum_frame.place(relx=0.5, rely=0.1, relwidth=0.75, relheight=0.1, anchor='n')
+agentsNum_frame.place(relx=0.5, rely=0.1, relwidth=0.75, relheight=0.1, 
+                      anchor='n')
 # Creating the Entry widget to allow the user to enter the number of agents 
 entry = tk.Entry(agentsNum_frame)
 entry.place(relwidth=0.65, relheight=0.5)
@@ -270,7 +271,8 @@ entry.focus_set()
 # Creating the Button on the "agentsNum_frame" with text to display in the 
 # button and "IO_agent_num" function is called when the button is pressed
 # =============================================================================
-agentsNum_btn = tk.Button(agentsNum_frame,text='Number of agents',command=IO_agent_num)
+agentsNum_btn = tk.Button(agentsNum_frame,text='Number of agents',
+                          command=IO_agent_num)
 agentsNum_btn.place(relx=0.70, relheight=1, relwidth=0.3)
 
 
@@ -279,7 +281,8 @@ agentsNum_btn.place(relx=0.70, relheight=1, relwidth=0.3)
 #(parent window), background colour and size of the border
 # =============================================================================
 iterationsNum_frame = tk.Frame(root, bg='yellow', bd=5)
-iterationsNum_frame.place(relx=0.5, rely=0.2, relwidth=0.75, relheight=0.1, anchor='n')
+iterationsNum_frame.place(relx=0.5, rely=0.2, relwidth=0.75, relheight=0.1,
+                          anchor='n')
 # Setting the returned value to be a float
 var = tk.DoubleVar()
 # =============================================================================
@@ -287,9 +290,11 @@ var = tk.DoubleVar()
 # value by moving the slider, the minumum and maximum value have been specified. 
 # Furthermore, we specify that we want a "HORIZONTAL" slider.
 # =============================================================================
-iteration_scale = tk.Scale(iterationsNum_frame, from_=0, to=200, orient=tk.HORIZONTAL)
+iteration_scale = tk.Scale(iterationsNum_frame, from_=0, to=200,
+                           orient=tk.HORIZONTAL)
 iteration_scale.place(relwidth=0.65, relheight=0.5)  
-iteration_btn = tk.Button(iterationsNum_frame, text="Iteration number", command=IO_iterations_num)
+iteration_btn = tk.Button(iterationsNum_frame, text="Iteration number",
+                          command=IO_iterations_num)
 iteration_btn.place(relx=0.70,relheight=1, relwidth=0.3)  
 
 
