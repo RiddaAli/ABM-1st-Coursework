@@ -17,10 +17,7 @@ class Agent():
         object (Agent) is created from a class. Furthermore, it allows the
         class to initialize its attributes/properties (e.g. move, eat etc.).
         """
-# =============================================================================
-#         self._y = random.randint(0,300)
-#         self._x = random.randint(0,300)
-# =============================================================================
+
         self.environment = environment
         self.agents = agents
         self.store = 0

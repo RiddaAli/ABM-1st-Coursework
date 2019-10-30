@@ -22,6 +22,8 @@ content = read_site.text
 
 # Using the "Beautiful Soup" Python library to pull data out of HTML
 soup = bs4.BeautifulSoup(content, 'html.parser')
+
+
 # =============================================================================
 # # Using the attribute "class" in searches by putting it into a dictionary and
 # then passing the dictionary into the "find_all()" as the "attrs" argument
@@ -30,6 +32,7 @@ td_ys = soup.find_all(attrs={"class" : "y"})
 td_xs = soup.find_all(attrs={"class" : "x"})
 print(td_ys)
 print(td_xs)
+
 
 # Initializing global variables and giving them default values
 num_of_agents = 20
@@ -47,7 +50,6 @@ ax = fig.add_axes([0, 0, 1, 1])
 # Initially setting the global boolean variable "carry_on" to True
 carry_on = True
 
-#ax.set_autoscale_on(False)
 
 # =============================================================================
 # # Creating an empty list called "environment" 
@@ -67,6 +69,8 @@ for row in reader:
      # A list of value
      for value in row:
          rowlist.append(value)
+
+
 # =============================================================================
 #    # Adding the values from each row to the "environment" list making it a 
 #    #2D List
@@ -76,20 +80,6 @@ for row in reader:
 # Once done with the reader close the file
 f.close()
 
-
-# =============================================================================
-# Creating the agents
-# =============================================================================
-# def make_agents():
-#      
-#     agents = []
-#     for i in range(num_of_agents):
-#         y = int(td_ys[i].text)
-#         x = int(td_xs[i].text)
-#         agents.append(agentframework.Agent(environment, agents, y, x))
-# 
-# =============================================================================
-# =============================================================================
 
 # Creating the agents
 agents = []
@@ -113,6 +103,8 @@ def update(frame_number):
     matplotlib.pyplot.xlim(0, 300)
     matplotlib.pyplot.ylim(300, 0)
     
+
+
 # =============================================================================
 #     # Checking that the data has been imported correctly by plotting it
 #     choosing and specifying the colormap
@@ -127,6 +119,8 @@ def update(frame_number):
         agents[i].move()
         agents[i].eat()
         agents[i].share_with_neighbours(neighbourhood)
+
+
 
 # =============================================================================
 #         Scaling the agent by setting the size ("s") equal to the amount of 
@@ -156,6 +150,7 @@ def gen_function(b = [0]):
         yield a	# Returns control and waits next call.
         a = a + 1
 
+
 def run():
     """ 
     In this function we are making the animation by calling a function 
@@ -165,6 +160,8 @@ def run():
             repeat=False, frames=gen_function)
 
     canvas.draw()
+
+
 
 def IO_agent_num():
     """ 
@@ -176,6 +173,8 @@ def IO_agent_num():
     global num_of_agents
     num_of_agents = int(input_num)
     
+
+
 def IO_iterations_num():
     """ 
     In this function we are getting the number of iterations specified by
@@ -186,8 +185,10 @@ def IO_iterations_num():
     global num_of_iterations
     num_of_iterations = int(input_num)
 
+
 # Creating the main window
 root = tk.Tk()
+
 # =============================================================================
 # Setting a minimum size for the main window by using the  Tkinter built-in 
 # function minsize(height, width)
@@ -198,26 +199,14 @@ root.wm_title("Model")
 # Creating canvas
 canvas = tk.Canvas(root)
 
-# =============================================================================
-# background = 'sheeps.png'
-# # ===========================================================================
-# # img = ImageTk.PhotoImage(Image.open(background))
-# # img.place(relwidth=1, relheight=1)
-# # ===========================================================================
-# label = tk.Label(image=background)
-# label.image = background # keep a reference!
-# label.pack()
-# 
-# bg_image = PhotoImage(file ="sheeps.png")
-# x = tk.Label (image = bg_image)
-# x.grid(row = 0, column = 0)
-# =============================================================================
 
 # =============================================================================
 # Using the Frame from the Tkinter library to organize widgets, passing the 
 # parent  window ("root") and specifying the size of the border
 # =============================================================================
 image_frame = tk.Frame(root, bd=10)
+
+
 # =============================================================================
 # Using the geometry manager "place" to organize the image frame in a specific
 # position in the parent widget. 
@@ -227,12 +216,16 @@ image_frame = tk.Frame(root, bd=10)
 # =============================================================================
 image_frame.place(relx=0.5, rely=0.7, relheight= 0.6, relwidth=0.75,
                   anchor='center')
+
+
 # =============================================================================
 # Creating and laying out a matplotlib canvas embedded inside the window and 
 # connected with "fig", setting the "image_frame" as the master (parent widget) 
 # =============================================================================
 canvas = matplotlib.backends.backend_tkagg.FigureCanvasTkAgg(fig, 
                   master=image_frame)
+
+
 # =============================================================================
 # Using the geometry manager "pack", specifying the:
 # - side: to decide which side of the parent widget packs againtst (TOP)
@@ -249,11 +242,15 @@ root.config(menu=menu_bar)
 model_menu = tk.Menu(menu_bar)
 # Creating a submenu by using "add_cascade", passing it the label and menu
 menu_bar.add_cascade(label="Model", menu=model_menu)
+
+
 # =============================================================================
 # Adding menu item to the menu, passing it the label and command to call the 
 # run function
 # =============================================================================
 model_menu.add_command(label="Run model", command=run)
+
+
 
 # =============================================================================
 # Creating another frame for the agents number, specifying root (parent window)
@@ -262,11 +259,15 @@ model_menu.add_command(label="Run model", command=run)
 agentsNum_frame = tk.Frame(root, bg='#80c1ff', bd=5)
 agentsNum_frame.place(relx=0.5, rely=0.1, relwidth=0.75, relheight=0.1, 
                       anchor='n')
+
 # Creating the Entry widget to allow the user to enter the number of agents 
 entry = tk.Entry(agentsNum_frame)
 entry.place(relwidth=0.65, relheight=0.5)
+
 # Using entry.focus_set() to set direct input focus to this widget
 entry.focus_set()
+
+
 # =============================================================================
 # Creating the Button on the "agentsNum_frame" with text to display in the 
 # button and "IO_agent_num" function is called when the button is pressed
@@ -285,6 +286,8 @@ iterationsNum_frame.place(relx=0.5, rely=0.2, relwidth=0.75, relheight=0.1,
                           anchor='n')
 # Setting the returned value to be a float
 var = tk.DoubleVar()
+
+
 # =============================================================================
 # Creating the Scale widget, which will allow the user to select a numerical 
 # value by moving the slider, the minumum and maximum value have been specified. 
@@ -297,14 +300,6 @@ iteration_btn = tk.Button(iterationsNum_frame, text="Iteration number",
                           command=IO_iterations_num)
 iteration_btn.place(relx=0.70,relheight=1, relwidth=0.3)  
 
-
-# =============================================================================
-# tk_text = tk.Text(root, height=10, width=30)
-# tk_text.pack(anchor=NW)
-# intructions = """ INSTRUCTIONS TO RUN THE CODE: (step by step)
-#     1) """
-# tk_text.insert(tk.END, intructions)
-# =============================================================================
 
 
 # Execution of the python program halts here
