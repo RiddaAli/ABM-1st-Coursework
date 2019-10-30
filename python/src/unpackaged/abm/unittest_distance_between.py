@@ -13,12 +13,13 @@ class TestDocs(unittest.TestCase):
 
     def test_distance_between(self):
         
-     """ 
-     Testing the  "distance_between()" function by adding twp agents to the 
-     "agents_list" and then testing that there is a distance between the first
-     and second agent, whereas there is no distance between the second agent 
-     and itself. 
-     """
+        
+        """ 
+        Testing the  "distance_between()" function by adding two agents to the 
+        "agents_list" and then testing that there is a distance between the 
+        first and second agent, whereas there is no distance between the second
+        agent and itself. 
+        """
         environment = [[2, 2],[ 2, 2]]
         
         agents_list = []

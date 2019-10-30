@@ -2,7 +2,6 @@ import random
 import tkinter as tk
 import matplotlib
 matplotlib.use('TkAgg')
-#matplotlib.use('macosx')
 import matplotlib.pyplot
 import matplotlib.animation 
 import agentframework
@@ -13,7 +12,7 @@ import bs4
 
 # =============================================================================
 # Reading the data from the specified url, "read_site" return the response 200,
-# which means a successful execution of request
+# which means successful execution of the request
 # =============================================================================
 read_site = requests.get('http://www.geog.leeds.ac.uk/courses/computing/practicals/python/agent-framework/part9/data.html')
 
@@ -30,8 +29,8 @@ soup = bs4.BeautifulSoup(content, 'html.parser')
 # =============================================================================
 td_ys = soup.find_all(attrs={"class" : "y"})
 td_xs = soup.find_all(attrs={"class" : "x"})
-print(td_ys)
-print(td_xs)
+#print(td_ys)
+#print(td_xs)
 
 
 # Initializing global variables and giving them default values
@@ -72,8 +71,8 @@ for row in reader:
 
 
 # =============================================================================
-#    # Adding the values from each row to the "environment" list making it a 
-#    #2D List
+#    Adding the values from each row to the "environment" list making it a 
+#    2D List
 # =============================================================================
      environment.append(rowlist)
      
@@ -123,9 +122,9 @@ def update(frame_number):
 
 
 # =============================================================================
-#         Scaling the agent by setting the size ("s") equal to the amount of 
-#         grass eaten so they grow as they eat more and when they ate, in other
-#         words when "store" is more than 1000 stop as they are full
+#       Scaling the agent by setting the size ("s") equal to the amount of 
+#       grass eaten so they grow as they eat more and when they ate, in other
+#       words when "store" is grater than 1000 stop as they are full
 # =============================================================================
         matplotlib.pyplot.scatter(agents[i].get_x(),agents[i].get_y(),
                                   s=agents[i].store, marker=r'$\clubsuit$')
@@ -269,7 +268,7 @@ entry.focus_set()
 
 
 # =============================================================================
-# Creating the Button on the "agentsNum_frame" with text to display in the 
+# Creating the Button on the "agentsNum_frame" with text to display on the 
 # button and "IO_agent_num" function is called when the button is pressed
 # =============================================================================
 agentsNum_btn = tk.Button(agentsNum_frame,text='Number of agents',
@@ -302,7 +301,10 @@ iteration_btn.place(relx=0.70,relheight=1, relwidth=0.3)
 
 
 
-# Execution of the python program halts here
+# =============================================================================
+# "mainloop()" is executed when the application is run, it keeps processing
+#  the event until the window remains open.
+# =============================================================================
 tk.mainloop()
 
 

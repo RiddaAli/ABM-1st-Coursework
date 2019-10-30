@@ -34,22 +34,30 @@ class Agent():
             
  
     def set_y(self, y):
-        """ Setters: Making y private and setting it equal to a specified 
-        integer value. """
+        """ 
+        Setters: Making y private and setting it equal to a specified 
+        integer value. 
+        """
         self._y = y
         
     def set_x(self, x):
-        """ Setters: Making x private setting it equal to a specified 
-        integer value. """
+        """ 
+        Setters: Making x private setting it equal to a specified 
+        integer value. 
+        """
         self._x = x
         
     
     def get_y(self):
-        """ Getters: getting the private y value """
+        """ 
+        Getters: getting the private y value 
+        """
         return self._y
     
     def get_x(self):
-        """ Getters: getting the private x value """
+        """ 
+        Getters: getting the private x value
+        """
         return self._x
     
 

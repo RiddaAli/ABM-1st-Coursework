@@ -32,8 +32,8 @@ for row in reader:
          rowlist.append(value)
 
 # =============================================================================
-#    # Adding the values from each row to the "environment" list making it a 
-#    #2D List
+#    Adding the values from each row to the "environment" list making it a 
+#    2D List
 # =============================================================================
      environment.append(rowlist)
      
@@ -45,7 +45,7 @@ num_of_agents = 2
 
 # =============================================================================
 # Reading the data from the specified url, "read_site" return the response 200,
-# which means a successful execution of request
+# which means successful execution of the request
 # =============================================================================
 read_site = requests.get('http://www.geog.leeds.ac.uk/courses/computing/practicals/python/agent-framework/part9/data.html')
 
@@ -63,6 +63,8 @@ soup = bs4.BeautifulSoup(content, 'html.parser')
 # =============================================================================
 td_ys = soup.find_all(attrs={"class" : "y"})
 td_xs = soup.find_all(attrs={"class" : "x"})
+
+
 # Creating the agents
 agents = []
 for i in range(num_of_agents):
@@ -91,7 +93,7 @@ def test_move():
 def test_eat():
     """ 
     Testing the "eat()" function by making the second agent eat 30 times, 
-    then getting its x and y values and Ensuring that the environment is not
+    then getting its x and y values and ensuring that the environment is not
     empty. 
     """
     for _ in range(30):
@@ -106,8 +108,8 @@ def test_eat():
     
 def test_distance_between():
     """ 
-    Testing the  "distance_between()" function by adding twp agents to the 
-    "agents_list" and then testing that there is a distance between the first
+    Testing the  "distance_between()" function by adding two agents to the 
+    "agents_list" and then ensuring that there is a distance between the first
     and second agent, whereas there is no distance between the second agent and 
     itself. 
     """
@@ -124,7 +126,7 @@ def test_distance_between():
     
 def test_share():
     """ 
-    Testing the "share_with_neighbours()" function by creating 2 agents
+    Testing the "share_with_neighbours()" function by creating 2 agents:
     first agent at position(5,5) and the second agent at position (4,4). 
     Then, making the first agent eat. Printing the storage of the 2 agents 
     before sharing. Making them share within the neighbourhood (radius) 4. 
