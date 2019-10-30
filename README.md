@@ -19,4 +19,4 @@ Brief explanation of the files and their content:
  4) Now click on the submenu labelled "Run model", this will run the model and the animated model should appear inside the "Model" window 
     (underneath the "Number of agents" and "Iteration number" buttons).
  
- There is also a GIF which shows all these steps on my webpage: "RiddaAli.github.io"
+ There is also a GIF which shows all these steps on my webpage: https://riddaali.github.io
