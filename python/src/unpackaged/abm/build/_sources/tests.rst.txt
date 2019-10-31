@@ -1,0 +1,6 @@
+tests module
+============
+
+.. automodule:: tests
+   :members:
+   
