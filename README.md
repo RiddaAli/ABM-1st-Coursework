@@ -7,7 +7,7 @@
    agents interact with each other. It also comprises all the code required to produce the animation.
  - unittest_distance_between.py: Unittest for the "distance_between()" function.
  - tests.py: Testing functions using pytest library. 
- - Sphinx documentation files: (Makefile, make.bat, .rst, .py and html files), follow the path shown below to run the documentation:
+ - Sphinx documentation files: (Makefile, make.bat, .rst, .py and html files), follow the file path shown below to run the documentation:
  
    https://github.com/RiddaAli/ABM-1st-Coursework/blob/master/python/src/unpackaged/abm/docs/_build/index.html
  
