@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>agentframework &#8212; Riddas ABM 1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for agentframework</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Created on Wed Sep 18 08:26:33 2019</span>
+
+<span class="sd">@author: gyral</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">random</span> 
+
+<div class="viewcode-block" id="Agent"><a class="viewcode-back" href="../agentframework.html#agentframework.Agent">[docs]</a><span class="k">class</span> <span class="nc">Agent</span><span class="p">():</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">environment</span><span class="p">,</span> <span class="n">agents</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This is the constructor, which is a method that is called when an </span>
+<span class="sd">        object (Agent) is created from a class. Furthermore, it allows the</span>
+<span class="sd">        class to initialize its attributes/properties (e.g. move, eat etc.).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">environment</span> <span class="o">=</span> <span class="n">environment</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">agents</span> <span class="o">=</span> <span class="n">agents</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">store</span> <span class="o">=</span> <span class="mi">0</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">x</span>
+            
+        <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="n">y</span>
+            
+ 
+<div class="viewcode-block" id="Agent.set_y"><a class="viewcode-back" href="../agentframework.html#agentframework.Agent.set_y">[docs]</a>    <span class="k">def</span> <span class="nf">set_y</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Setters: Making y private and setting it equal to a specified </span>
+<span class="sd">        integer value. </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="n">y</span></div>
+        
+<div class="viewcode-block" id="Agent.set_x"><a class="viewcode-back" href="../agentframework.html#agentframework.Agent.set_x">[docs]</a>    <span class="k">def</span> <span class="nf">set_x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Setters: Making x private setting it equal to a specified </span>
+<span class="sd">        integer value. </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">x</span></div>
+        
+    
+<div class="viewcode-block" id="Agent.get_y"><a class="viewcode-back" href="../agentframework.html#agentframework.Agent.get_y">[docs]</a>    <span class="k">def</span> <span class="nf">get_y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Getters: getting the private y value </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span></div>
+    
+<div class="viewcode-block" id="Agent.get_x"><a class="viewcode-back" href="../agentframework.html#agentframework.Agent.get_x">[docs]</a>    <span class="k">def</span> <span class="nf">get_x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Getters: getting the private x value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span></div>
+    
+
+<div class="viewcode-block" id="Agent.move"><a class="viewcode-back" href="../agentframework.html#agentframework.Agent.move">[docs]</a>    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Moving agents randomly:</span>
+<span class="sd">            - Problem: agents might be missing from the graph if they ended up</span>
+<span class="sd">              wandering off the edge.</span>
+<span class="sd">            - Solution: Torus - permit agents leaving the top of an area to</span>
+<span class="sd">              come in at the bottom and leaving left come in on the right side.</span>
+<span class="sd">              </span>
+<span class="sd">        :param [self]: [pointing to the object itself ((data type: tuple))]</span>
+<span class="sd">        :return: [new random x and y values for the parameter self]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">300</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">300</span>
+
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">300</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">300</span></div>
+    
+        
+<div class="viewcode-block" id="Agent.eat"><a class="viewcode-back" href="../agentframework.html#agentframework.Agent.eat">[docs]</a>    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Using the if statement to determine whether agents should eat the</span>
+<span class="sd">        environment or not. </span>
+<span class="sd">        If the environment is greater than 10 than subtract 10 units from the </span>
+<span class="sd">        environment and add it to the agent&#39;s store.</span>
+<span class="sd">        </span>
+<span class="sd">        :param [self]: [pointing to the object itself (data type: tuple)]</span>
+<span class="sd">        :return: [values for the &quot;environment&quot; and &quot;store&quot; variables]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">environment</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_y</span><span class="p">()][</span><span class="bp">self</span><span class="o">.</span><span class="n">get_x</span><span class="p">()]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">environment</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_y</span><span class="p">()][</span><span class="bp">self</span><span class="o">.</span><span class="n">get_x</span><span class="p">()]</span> <span class="o">-=</span> <span class="mi">10</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">store</span> <span class="o">+=</span> <span class="mi">10</span></div>
+            
+<span class="c1"># =============================================================================</span>
+<span class="c1"># # Extension from practical 6 (I/O)  </span>
+<span class="c1"># # Displaing information about agents&#39; location and stores      </span>
+<span class="c1"># =============================================================================</span>
+<span class="c1"># =============================================================================</span>
+<span class="c1">#     def __str__(self):</span>
+<span class="c1">#         print(&quot;x location: &quot;, self.get_x())</span>
+<span class="c1">#         print(&quot;y location: &quot;, self.get_y())</span>
+<span class="c1">#         print(&quot;store: &quot;, self.store)</span>
+<span class="c1"># </span>
+<span class="c1"># =============================================================================</span>
+
+            
+<div class="viewcode-block" id="Agent.share_with_neighbours"><a class="viewcode-back" href="../agentframework.html#agentframework.Agent.share_with_neighbours">[docs]</a>    <span class="k">def</span> <span class="nf">share_with_neighbours</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">neighbourhood</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Calculating the distance to each of the other agent,</span>
+<span class="sd">        and if they tend to be within the neighbourhood distance then sets its </span>
+<span class="sd">        and its neighbours stores equal to the average of their two stores</span>
+<span class="sd">        </span>
+<span class="sd">        Looping through the agents in self.agents.</span>
+<span class="sd">        1) Calculating the distance between self and the current other agent.</span>
+<span class="sd">        2) If the distance is less than or equal to neighbourhood </span>
+<span class="sd">           (by default 20 is the radius around agents)then add </span>
+<span class="sd">           self.store and agent.store.</span>
+<span class="sd">        3) Calculate the average by dividing the sum by 2. </span>
+<span class="sd">        4) Store this average into both the self.store and agent.store.</span>
+<span class="sd">    </span>
+<span class="sd">        :param [self, neighbourhood]: [pointing to the agent itself </span>
+<span class="sd">        (data type: tuple) and neighbourhood (data type: integer)]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">agent</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">agents</span><span class="p">:</span>
+            <span class="n">distance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">distance_between</span><span class="p">(</span><span class="n">agent</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">distance</span> <span class="o">&lt;=</span> <span class="n">neighbourhood</span><span class="p">:</span>
+                <span class="n">average</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">store</span> <span class="o">+</span> <span class="n">agent</span><span class="o">.</span><span class="n">store</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">store</span> <span class="o">=</span> <span class="n">average</span>
+                <span class="n">agent</span><span class="o">.</span><span class="n">store</span> <span class="o">=</span> <span class="n">average</span></div>
+                <span class="c1">#print(&quot;Sharing &quot; + str(distance) + &quot; &quot; + str(average))</span>
+                
+            
+                
+
+<div class="viewcode-block" id="Agent.distance_between"><a class="viewcode-back" href="../agentframework.html#agentframework.Agent.distance_between">[docs]</a>    <span class="k">def</span> <span class="nf">distance_between</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other_agent</span><span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            # Calculating how far the agents are by using Pythagoras</span>
+<span class="sd">            </span>
+<span class="sd">            Agent 1 = self.</span>
+<span class="sd">            Agent 2 = other_agent.</span>
+<span class="sd">            </span>
+<span class="sd">            :param [self, other_agent]: [pointing to the agent itself </span>
+<span class="sd">            (data type: tuple) and another agent (data type: tuple)]</span>
+<span class="sd">            :return: [distance between Agent 1 and Agent 2 by using </span>
+<span class="sd">            Pythagoras (data type: float)]</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">return</span> <span class="p">(((</span><span class="bp">self</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">-</span> <span class="n">other_agent</span><span class="o">.</span><span class="n">get_x</span><span class="p">())</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span>
+                <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">get_y</span><span class="p">()</span> <span class="o">-</span> <span class="n">other_agent</span><span class="o">.</span><span class="n">get_y</span><span class="p">())</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">**</span><span class="mf">0.5</span></div></div>
+
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Riddas ABM</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Ridda Ali.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

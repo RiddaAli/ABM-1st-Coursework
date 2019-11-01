@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>agentframework module &#8212; Riddas ABM 1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-agentframework">
+<span id="agentframework-module"></span><h1>agentframework module<a class="headerlink" href="#module-agentframework" title="Permalink to this headline">¶</a></h1>
+<p>Created on Wed Sep 18 08:26:33 2019</p>
+<p>&#64;author: gyral</p>
+<dl class="class">
+<dt id="agentframework.Agent">
+<em class="property">class </em><code class="sig-prename descclassname">agentframework.</code><code class="sig-name descname">Agent</code><span class="sig-paren">(</span><em class="sig-param">environment</em>, <em class="sig-param">agents</em>, <em class="sig-param">y=None</em>, <em class="sig-param">x=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/agentframework.html#Agent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agentframework.Agent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="agentframework.Agent.distance_between">
+<code class="sig-name descname">distance_between</code><span class="sig-paren">(</span><em class="sig-param">other_agent</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/agentframework.html#Agent.distance_between"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agentframework.Agent.distance_between" title="Permalink to this definition">¶</a></dt>
+<dd><p># Calculating how far the agents are by using Pythagoras</p>
+<p>Agent 1 = self.
+Agent 2 = other_agent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other_agent</strong><strong>]</strong> (<em>[</em><em>self</em><em>,</em>) – [pointing to the agent itself</p>
+</dd>
+</dl>
+<p>(data type: tuple) and another agent (data type: tuple)]
+:return: [distance between Agent 1 and Agent 2 by using 
+Pythagoras (data type: float)]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="agentframework.Agent.eat">
+<code class="sig-name descname">eat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/agentframework.html#Agent.eat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agentframework.Agent.eat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Using the if statement to determine whether agents should eat the
+environment or not. 
+If the environment is greater than 10 than subtract 10 units from the 
+environment and add it to the agent’s store.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>[</strong><strong>self</strong><strong>]</strong> – [pointing to the object itself (data type: tuple)]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>[values for the “environment” and “store” variables]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="agentframework.Agent.get_x">
+<code class="sig-name descname">get_x</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/agentframework.html#Agent.get_x"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agentframework.Agent.get_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getters: getting the private x value</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="agentframework.Agent.get_y">
+<code class="sig-name descname">get_y</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/agentframework.html#Agent.get_y"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agentframework.Agent.get_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getters: getting the private y value</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="agentframework.Agent.move">
+<code class="sig-name descname">move</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/agentframework.html#Agent.move"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agentframework.Agent.move" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Moving agents randomly:</dt><dd><ul class="simple">
+<li><p>Problem: agents might be missing from the graph if they ended up
+wandering off the edge.</p></li>
+<li><p>Solution: Torus - permit agents leaving the top of an area to
+come in at the bottom and leaving left come in on the right side.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>[</strong><strong>self</strong><strong>]</strong> – [pointing to the object itself ((data type: tuple))]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>[new random x and y values for the parameter self]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="agentframework.Agent.set_x">
+<code class="sig-name descname">set_x</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/agentframework.html#Agent.set_x"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agentframework.Agent.set_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setters: Making x private setting it equal to a specified 
+integer value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="agentframework.Agent.set_y">
+<code class="sig-name descname">set_y</code><span class="sig-paren">(</span><em class="sig-param">y</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/agentframework.html#Agent.set_y"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agentframework.Agent.set_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setters: Making y private and setting it equal to a specified 
+integer value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="agentframework.Agent.share_with_neighbours">
+<code class="sig-name descname">share_with_neighbours</code><span class="sig-paren">(</span><em class="sig-param">neighbourhood</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/agentframework.html#Agent.share_with_neighbours"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agentframework.Agent.share_with_neighbours" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculating the distance to each of the other agent,
+and if they tend to be within the neighbourhood distance then sets its 
+and its neighbours stores equal to the average of their two stores</p>
+<p>Looping through the agents in self.agents.
+1) Calculating the distance between self and the current other agent.
+2) If the distance is less than or equal to neighbourhood</p>
+<blockquote>
+<div><p>(by default 20 is the radius around agents)then add 
+self.store and agent.store.</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>Calculate the average by dividing the sum by 2.</p></li>
+<li><p>Store this average into both the self.store and agent.store.</p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>neighbourhood</strong><strong>]</strong> (<em>[</em><em>self</em><em>,</em>) – [pointing to the agent itself</p>
+</dd>
+</dl>
+<p>(data type: tuple) and neighbourhood (data type: integer)]</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Riddas ABM</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Ridda Ali.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/agentframework.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
