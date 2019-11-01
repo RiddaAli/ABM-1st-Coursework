@@ -1,15 +1,15 @@
-# ABM-1st-Coursework
+##  ABM-1st-Coursework
 
-Brief explanation of the files and their content:
+# Brief explanation of the files and their content:
  
  - agentframework.py: includes the class Agent and all the useful methods.
  - animatedmodel.py: includes some global variables, reads the data from the 'in.csv' file to create the environment in which 
    agents interact with each other. It also comprises all the code required to produce the animation.
  - unittest_distance_between.py: Unittest for the "distance_between()" function.
  - tests.py: Testing functions using pytest library. 
+ - Sphinx documentation files: (Makefile, make.bat, .rst, .py and html files)
  
- 
- Follow the steps below in order to run the code:
+ # Follow the steps below in order to run the code:
  
  1) Run the "animatedmodel.py" file
  2) A window with the "Model" would appear and within this model:
@@ -19,4 +19,4 @@ Brief explanation of the files and their content:
  4) Now click on the submenu labelled "Run model", this will run the model and the animated model should appear inside the "Model" window 
     (underneath the "Number of agents" and "Iteration number" buttons).
  
- There is also a GIF which shows all these steps on my webpage: https://riddaali.github.io
+ # There is also a GIF which shows all these steps on my webpage: https://riddaali.github.io
